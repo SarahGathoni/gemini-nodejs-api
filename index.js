@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const PORT = 3000;
+
 // Initialize Google Generative AI with API key from environment variable
 const genAI = new GoogleGenerativeAI(process.env.API_KEY)
 
@@ -47,6 +47,7 @@ app.post('/chat', async (req, res) => {
 });
 
 // Start the server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+  console.log(`Server listening on port ${PORT}`);
 });
