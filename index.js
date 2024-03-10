@@ -5,6 +5,7 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 const cors = require('cors');
+const port = process.env.PORT
 
 // Middleware
 app.use(cors());
@@ -55,7 +56,7 @@ app.use('/frontend', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT|8080
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
